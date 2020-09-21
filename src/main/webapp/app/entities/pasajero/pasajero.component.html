@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="firstApp.pasajero.home.title">Pasajeros</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pasajero" [routerLink]="['/pasajero/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="firstApp.pasajero.home.createLabel">
+            Create a new Pasajero
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="pasajeros?.length === 0">
+        <span jhiTranslate="firstApp.pasajero.home.notFound">No pasajeros found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="pasajeros && pasajeros.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.pasajero.idpas">Idpas</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.pasajero.nombre">Nombre</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.pasajero.identificacion">Identificacion</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.pasajero.idt">Idt</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.pasajero.idpas">Idpas</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.pasajero.tiquete">Tiquete</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pasajero of pasajeros ;trackBy: trackId">
+                    <td><a [routerLink]="['/pasajero', pasajero.id, 'view']">{{ pasajero.id }}</a></td>
+                    <td>{{ pasajero.idpas }}</td>
+                    <td>{{ pasajero.nombre }}</td>
+                    <td>{{ pasajero.identificacion }}</td>
+                    <td>{{ pasajero.idt }}</td>
+                    <td>
+                        <span *ngFor="let idpas of pasajero.idpas; let last = last">
+                            <a class="form-control-static" [routerLink]="['/vuelo', idpas?.id, 'view']">{{ idpas.title }}</a>{{ last ? '' : ', ' }}
+                        </span>
+                    </td>
+                    <td>
+                        <div *ngIf="pasajero.tiquete">
+                            <a [routerLink]="['/tiquete', pasajero.tiquete?.id, 'view']" >{{ pasajero.tiquete?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/pasajero', pasajero.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/pasajero', pasajero.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(pasajero)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

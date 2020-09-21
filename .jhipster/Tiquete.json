@@ -1,0 +1,36 @@
+{
+  "name": "Tiquete",
+  "fields": [
+    {
+      "fieldName": "idt",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "asiento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fecha",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pasajero",
+      "otherEntityRelationshipName": "tiquete",
+      "relationshipName": "pasajero"
+    }
+  ],
+  "changelogDate": "20200921032217",
+  "entityTableName": "tiquete",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

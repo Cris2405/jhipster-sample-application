@@ -1,0 +1,53 @@
+{
+  "name": "Avion",
+  "fields": [
+    {
+      "fieldName": "idavion",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "modelo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "capacidad",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idaero",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "vuelo",
+      "otherEntityRelationshipName": "avion",
+      "relationshipName": "vuelo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "operacion",
+      "otherEntityRelationshipName": "avion",
+      "relationshipName": "operacion"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "aeropuerto",
+      "otherEntityRelationshipName": "avion",
+      "relationshipName": "aeropuerto",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200921032117",
+  "entityTableName": "avion",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

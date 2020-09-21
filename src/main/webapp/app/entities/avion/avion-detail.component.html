@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="avion">
+            <h2><span jhiTranslate="firstApp.avion.detail.title">Avion</span> {{ avion.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="firstApp.avion.idavion">Idavion</span></dt>
+                <dd>
+                    <span>{{ avion.idavion }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.avion.modelo">Modelo</span></dt>
+                <dd>
+                    <span>{{ avion.modelo }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.avion.capacidad">Capacidad</span></dt>
+                <dd>
+                    <span>{{ avion.capacidad }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.avion.idaero">Idaero</span></dt>
+                <dd>
+                    <span>{{ avion.idaero }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.avion.aeropuerto">Aeropuerto</span></dt>
+                <dd>
+                    <div *ngIf="avion.aeropuerto">
+                        <a [routerLink]="['/aeropuerto', avion.aeropuerto?.id, 'view']">{{ avion.aeropuerto?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/avion', avion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-vuelo-heading" jhiTranslate="firstApp.vuelo.home.createOrEditLabel">Create or edit a Vuelo</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="firstApp.vuelo.idvuelo" for="field_idvuelo">Idvuelo</label>
+                    <input type="number" class="form-control" name="idvuelo" id="field_idvuelo"
+                           formControlName="idvuelo"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="firstApp.vuelo.origen" for="field_origen">Origen</label>
+                    <input type="text" class="form-control" name="origen" id="field_origen"
+                           formControlName="origen"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="firstApp.vuelo.destino" for="field_destino">Destino</label>
+                    <input type="text" class="form-control" name="destino" id="field_destino"
+                           formControlName="destino"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="firstApp.vuelo.idpas" for="field_idpas">Idpas</label>
+                    <input type="number" class="form-control" name="idpas" id="field_idpas"
+                           formControlName="idpas"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="firstApp.vuelo.avion" for="field_avion">Avion</label>
+                    <select class="form-control" id="field_avion" name="avion" formControlName="avion">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="avionOption.id === editForm.get('avion')!.value?.id ? editForm.get('avion')!.value : avionOption" *ngFor="let avionOption of avions; trackBy: trackById">{{ avionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="firstApp.vuelo.aeropuerto" for="field_aeropuerto">Aeropuerto</label>
+                    <select class="form-control" id="field_aeropuerto" name="aeropuerto" formControlName="aeropuerto">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="aeropuertoOption.id === editForm.get('aeropuerto')!.value?.id ? editForm.get('aeropuerto')!.value : aeropuertoOption" *ngFor="let aeropuertoOption of aeropuertos; trackBy: trackById">{{ aeropuertoOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "firstApp": {
+    "aeropuerto": {
+      "home": {
+        "title": "Aeropuertos",
+        "createLabel": "Crear nuevo Aeropuerto",
+        "createOrEditLabel": "Crear o editar Aeropuerto",
+        "notFound": "Ningún Aeropuertos encontrado"
+      },
+      "created": "Un nuevo Aeropuerto ha sido creado con el identificador {{ param }}",
+      "updated": "Un Aeropuerto ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Aeropuerto ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Aeropuerto {{ id }}?"
+      },
+      "detail": {
+        "title": "Aeropuerto"
+      },
+      "idaero": "Idaero",
+      "nombre": "Nombre",
+      "pais": "Pais",
+      "ciudad": "Ciudad",
+      "direccion": "Direccion",
+      "vuelo": "Vuelo",
+      "avion": "Avion"
+    }
+  }
+}

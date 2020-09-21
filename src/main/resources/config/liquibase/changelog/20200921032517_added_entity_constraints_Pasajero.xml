@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Pasajero.
+    -->
+    <changeSet id="20200921032517-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="pasajero_id"
+                                 baseTableName="pasajero_idpas"
+                                 constraintName="fk_pasajero_idpas_pasajero_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pasajero"/>
+
+        <addForeignKeyConstraint baseColumnNames="idpas_id"
+                                 baseTableName="pasajero_idpas"
+                                 constraintName="fk_pasajero_idpas_idpas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vuelo"/>
+        
+        <addForeignKeyConstraint baseColumnNames="tiquete_id"
+                                 baseTableName="pasajero"
+                                 constraintName="fk_pasajero_tiquete_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tiquete"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,52 @@
+{
+  "name": "Operacion",
+  "fields": [
+    {
+      "fieldName": "idop",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "despegue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "aterrizaje",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fecha",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idavion",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "avion",
+      "otherEntityRelationshipName": "operacion",
+      "relationshipName": "avion",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "vuelo",
+      "otherEntityRelationshipName": "operacion",
+      "relationshipName": "vuelo",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200921032317",
+  "entityTableName": "operacion",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,49 @@
+{
+  "name": "Pasajero",
+  "fields": [
+    {
+      "fieldName": "idpas",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "identificacion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idt",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "vuelo",
+      "otherEntityRelationshipName": "idvuelo",
+      "relationshipName": "idpas",
+      "otherEntityField": "title",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tiquete",
+      "otherEntityRelationshipName": "pasajero",
+      "relationshipName": "tiquete",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200921032517",
+  "entityTableName": "pasajero",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

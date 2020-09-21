@@ -1,0 +1,28 @@
+{
+  "firstApp": {
+    "avion": {
+      "home": {
+        "title": "Avions",
+        "createLabel": "Create a new Avion",
+        "createOrEditLabel": "Create or edit a Avion",
+        "notFound": "No Avions found"
+      },
+      "created": "A new Avion is created with identifier {{ param }}",
+      "updated": "A Avion is updated with identifier {{ param }}",
+      "deleted": "A Avion is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Avion {{ id }}?"
+      },
+      "detail": {
+        "title": "Avion"
+      },
+      "idavion": "Idavion",
+      "modelo": "Modelo",
+      "capacidad": "Capacidad",
+      "idaero": "Idaero",
+      "vuelo": "Vuelo",
+      "operacion": "Operacion",
+      "aeropuerto": "Aeropuerto"
+    }
+  }
+}

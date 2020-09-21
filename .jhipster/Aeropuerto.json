@@ -1,0 +1,50 @@
+{
+  "name": "Aeropuerto",
+  "fields": [
+    {
+      "fieldName": "idaero",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pais",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ciudad",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "vuelo",
+      "otherEntityRelationshipName": "aeropuerto",
+      "relationshipName": "vuelo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "avion",
+      "otherEntityRelationshipName": "aeropuerto",
+      "relationshipName": "avion"
+    }
+  ],
+  "changelogDate": "20200921032417",
+  "entityTableName": "aeropuerto",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
