@@ -1,0 +1,59 @@
+// an ignored comment
+/** not an ignored comment */
+#fontSize: 19
+#direction: right
+entity Vuelo {
+	
+	idvuelo Integer,
+	origen String,
+	destino String,
+	idpas Integer
+}
+entity Avion {
+	idavion Integer,
+	modelo String,
+	capacidad Integer,
+	idaero String
+}
+entity Tiquete {
+	idt Integer,
+    asiento String,
+	fecha String
+}
+entity Operacion {
+	idop Integer,
+	despegue String,
+    aterrizaje String,
+    fecha String,
+    idavion Integer
+}
+entity Aeropuerto{
+	idaero Integer,
+	nombre String,
+    pais String,
+    ciudad String,
+    direccion String
+	}
+entity Pasajero {
+	idpas Integer,
+	nombre String,
+	identificacion String,
+    idt Integer
+}
+relationship ManyToMany {
+	Pasajero{idpas(title)} to Vuelo{idvuelo}
+}
+
+relationship OneToMany {
+	Avion to Vuelo{avion},
+    
+	Tiquete to Pasajero{tiquete},
+
+	Avion to Operacion{avion},
+
+    Aeropuerto to Vuelo{aeropuerto},
+    
+    Aeropuerto to Avion{aeropuerto},
+    
+    Vuelo to Operacion{vuelo}
+}
