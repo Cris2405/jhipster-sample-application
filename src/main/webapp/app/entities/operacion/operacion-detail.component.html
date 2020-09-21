@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="operacion">
+            <h2><span jhiTranslate="firstApp.operacion.detail.title">Operacion</span> {{ operacion.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="firstApp.operacion.idop">Idop</span></dt>
+                <dd>
+                    <span>{{ operacion.idop }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.operacion.despegue">Despegue</span></dt>
+                <dd>
+                    <span>{{ operacion.despegue }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.operacion.aterrizaje">Aterrizaje</span></dt>
+                <dd>
+                    <span>{{ operacion.aterrizaje }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.operacion.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{ operacion.fecha }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.operacion.idavion">Idavion</span></dt>
+                <dd>
+                    <span>{{ operacion.idavion }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.operacion.avion">Avion</span></dt>
+                <dd>
+                    <div *ngIf="operacion.avion">
+                        <a [routerLink]="['/avion', operacion.avion?.id, 'view']">{{ operacion.avion?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="firstApp.operacion.vuelo">Vuelo</span></dt>
+                <dd>
+                    <div *ngIf="operacion.vuelo">
+                        <a [routerLink]="['/vuelo', operacion.vuelo?.id, 'view']">{{ operacion.vuelo?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/operacion', operacion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

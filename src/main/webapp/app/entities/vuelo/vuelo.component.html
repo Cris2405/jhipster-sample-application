@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="firstApp.vuelo.home.title">Vuelos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vuelo" [routerLink]="['/vuelo/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="firstApp.vuelo.home.createLabel">
+            Create a new Vuelo
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="vuelos?.length === 0">
+        <span jhiTranslate="firstApp.vuelo.home.notFound">No vuelos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="vuelos && vuelos.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.vuelo.idvuelo">Idvuelo</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.vuelo.origen">Origen</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.vuelo.destino">Destino</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.vuelo.idpas">Idpas</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.vuelo.avion">Avion</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.vuelo.aeropuerto">Aeropuerto</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vuelo of vuelos ;trackBy: trackId">
+                    <td><a [routerLink]="['/vuelo', vuelo.id, 'view']">{{ vuelo.id }}</a></td>
+                    <td>{{ vuelo.idvuelo }}</td>
+                    <td>{{ vuelo.origen }}</td>
+                    <td>{{ vuelo.destino }}</td>
+                    <td>{{ vuelo.idpas }}</td>
+                    <td>
+                        <div *ngIf="vuelo.avion">
+                            <a [routerLink]="['/avion', vuelo.avion?.id, 'view']" >{{ vuelo.avion?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="vuelo.aeropuerto">
+                            <a [routerLink]="['/aeropuerto', vuelo.aeropuerto?.id, 'view']" >{{ vuelo.aeropuerto?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/vuelo', vuelo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/vuelo', vuelo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(vuelo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

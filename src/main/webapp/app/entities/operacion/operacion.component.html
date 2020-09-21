@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="firstApp.operacion.home.title">Operacions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-operacion" [routerLink]="['/operacion/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="firstApp.operacion.home.createLabel">
+            Create a new Operacion
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="operacions?.length === 0">
+        <span jhiTranslate="firstApp.operacion.home.notFound">No operacions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="operacions && operacions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.operacion.idop">Idop</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.operacion.despegue">Despegue</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.operacion.aterrizaje">Aterrizaje</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.operacion.fecha">Fecha</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.operacion.idavion">Idavion</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.operacion.avion">Avion</span></th>
+                    <th scope="col" ><span jhiTranslate="firstApp.operacion.vuelo">Vuelo</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let operacion of operacions ;trackBy: trackId">
+                    <td><a [routerLink]="['/operacion', operacion.id, 'view']">{{ operacion.id }}</a></td>
+                    <td>{{ operacion.idop }}</td>
+                    <td>{{ operacion.despegue }}</td>
+                    <td>{{ operacion.aterrizaje }}</td>
+                    <td>{{ operacion.fecha }}</td>
+                    <td>{{ operacion.idavion }}</td>
+                    <td>
+                        <div *ngIf="operacion.avion">
+                            <a [routerLink]="['/avion', operacion.avion?.id, 'view']" >{{ operacion.avion?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="operacion.vuelo">
+                            <a [routerLink]="['/vuelo', operacion.vuelo?.id, 'view']" >{{ operacion.vuelo?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/operacion', operacion.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/operacion', operacion.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(operacion)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "firstApp": {
+    "tiquete": {
+      "home": {
+        "title": "Tiquetes",
+        "createLabel": "Crear nuevo Tiquete",
+        "createOrEditLabel": "Crear o editar Tiquete",
+        "notFound": "Ningún Tiquetes encontrado"
+      },
+      "created": "Un nuevo Tiquete ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tiquete ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tiquete ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tiquete {{ id }}?"
+      },
+      "detail": {
+        "title": "Tiquete"
+      },
+      "idt": "Idt",
+      "asiento": "Asiento",
+      "fecha": "Fecha",
+      "pasajero": "Pasajero"
+    }
+  }
+}

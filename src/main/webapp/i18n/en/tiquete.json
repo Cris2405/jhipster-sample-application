@@ -1,0 +1,25 @@
+{
+  "firstApp": {
+    "tiquete": {
+      "home": {
+        "title": "Tiquetes",
+        "createLabel": "Create a new Tiquete",
+        "createOrEditLabel": "Create or edit a Tiquete",
+        "notFound": "No Tiquetes found"
+      },
+      "created": "A new Tiquete is created with identifier {{ param }}",
+      "updated": "A Tiquete is updated with identifier {{ param }}",
+      "deleted": "A Tiquete is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tiquete {{ id }}?"
+      },
+      "detail": {
+        "title": "Tiquete"
+      },
+      "idt": "Idt",
+      "asiento": "Asiento",
+      "fecha": "Fecha",
+      "pasajero": "Pasajero"
+    }
+  }
+}

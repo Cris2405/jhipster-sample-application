@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pasajero">
+            <h2><span jhiTranslate="firstApp.pasajero.detail.title">Pasajero</span> {{ pasajero.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="firstApp.pasajero.idpas">Idpas</span></dt>
+                <dd>
+                    <span>{{ pasajero.idpas }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.pasajero.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{ pasajero.nombre }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.pasajero.identificacion">Identificacion</span></dt>
+                <dd>
+                    <span>{{ pasajero.identificacion }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.pasajero.idt">Idt</span></dt>
+                <dd>
+                    <span>{{ pasajero.idt }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.pasajero.idpas">Idpas</span></dt>
+                <dd>
+                    <span *ngFor="let idpas of pasajero.idpas; let last = last">
+                        <a [routerLink]="['/vuelo', idpas?.id, 'view']">{{ idpas.title }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.pasajero.tiquete">Tiquete</span></dt>
+                <dd>
+                    <div *ngIf="pasajero.tiquete">
+                        <a [routerLink]="['/tiquete', pasajero.tiquete?.id, 'view']">{{ pasajero.tiquete?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pasajero', pasajero.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

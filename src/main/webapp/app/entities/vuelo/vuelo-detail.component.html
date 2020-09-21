@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vuelo">
+            <h2><span jhiTranslate="firstApp.vuelo.detail.title">Vuelo</span> {{ vuelo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="firstApp.vuelo.idvuelo">Idvuelo</span></dt>
+                <dd>
+                    <span>{{ vuelo.idvuelo }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.vuelo.origen">Origen</span></dt>
+                <dd>
+                    <span>{{ vuelo.origen }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.vuelo.destino">Destino</span></dt>
+                <dd>
+                    <span>{{ vuelo.destino }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.vuelo.idpas">Idpas</span></dt>
+                <dd>
+                    <span>{{ vuelo.idpas }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.vuelo.avion">Avion</span></dt>
+                <dd>
+                    <div *ngIf="vuelo.avion">
+                        <a [routerLink]="['/avion', vuelo.avion?.id, 'view']">{{ vuelo.avion?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="firstApp.vuelo.aeropuerto">Aeropuerto</span></dt>
+                <dd>
+                    <div *ngIf="vuelo.aeropuerto">
+                        <a [routerLink]="['/aeropuerto', vuelo.aeropuerto?.id, 'view']">{{ vuelo.aeropuerto?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vuelo', vuelo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

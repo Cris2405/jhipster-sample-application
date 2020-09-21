@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="aeropuerto">
+            <h2><span jhiTranslate="firstApp.aeropuerto.detail.title">Aeropuerto</span> {{ aeropuerto.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="firstApp.aeropuerto.idaero">Idaero</span></dt>
+                <dd>
+                    <span>{{ aeropuerto.idaero }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.aeropuerto.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{ aeropuerto.nombre }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.aeropuerto.pais">Pais</span></dt>
+                <dd>
+                    <span>{{ aeropuerto.pais }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.aeropuerto.ciudad">Ciudad</span></dt>
+                <dd>
+                    <span>{{ aeropuerto.ciudad }}</span>
+                </dd>
+                <dt><span jhiTranslate="firstApp.aeropuerto.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{ aeropuerto.direccion }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/aeropuerto', aeropuerto.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

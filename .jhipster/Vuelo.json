@@ -1,0 +1,63 @@
+{
+  "name": "Vuelo",
+  "fields": [
+    {
+      "fieldName": "idvuelo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "origen",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "destino",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idpas",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "operacion",
+      "otherEntityRelationshipName": "vuelo",
+      "relationshipName": "operacion"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "avion",
+      "otherEntityRelationshipName": "vuelo",
+      "relationshipName": "avion",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "aeropuerto",
+      "otherEntityRelationshipName": "vuelo",
+      "relationshipName": "aeropuerto",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "pasajero",
+      "otherEntityRelationshipName": "idpas",
+      "relationshipName": "idvuelo",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200921032017",
+  "javadoc": "not an ignored comment",
+  "entityTableName": "vuelo",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
